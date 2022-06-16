@@ -27,8 +27,8 @@ jobs:
           
       - name: Build solution and generate NuGet package
         run: |  
-          cd <project>
+          cd coypu
           dotnet pack -c Release -o out  
 
       - name: Push generated package to GitHub registry
-        run: dotnet nuget push ./cpypu/out/*.nupkg --skip-duplicate --no-symbols true
+        run: dotnet nuget push ./coypu/out/*.nupkg --skip-duplicate --no-symbols true
