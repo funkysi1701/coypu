@@ -27,6 +27,7 @@ jobs:
           
       - name: Build solution and generate NuGet package
         run: |  
+          ls -l
           cd src/coypu
           dotnet pack -c Release -o out  
 
