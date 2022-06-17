@@ -1,4 +1,4 @@
-# Coypu [![Nuget](https://img.shields.io/nuget/v/Coypu.svg)](https://www.nuget.org/packages/Coypu/) [![Nuget](https://img.shields.io/nuget/dt/Coypu.svg)](https://www.nuget.org/packages/Coypu/) ![](https://img.shields.io/badge/compatibility-.NET%20Framework%204.5%2B%20%7C%20.NET%20Standard%202.0-blue.svg)
+# Coypu [![Nuget](https://img.shields.io/nuget/v/Coypu.svg)](https://www.nuget.org/packages/Coypu/) [![Nuget](https://img.shields.io/nuget/dt/Coypu.svg)](https://www.nuget.org/packages/Coypu/)
 
 Coypu supports browser automation in .Net to help make tests readable, robust, fast to write and less tightly coupled to the UI. If your tests are littered with sleeps, retries, complex XPath expressions and IDs dug out of the source with browser developer tools then Coypu might help.
 

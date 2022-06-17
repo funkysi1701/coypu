@@ -16,18 +16,17 @@ namespace Coypu
         private static readonly TimeSpan DEFAULT_RETRY_INTERVAL = TimeSpan.FromSeconds(0.05);
         private static readonly TimeSpan DEFAULT_WAIT_BEFORE_CLICK = TimeSpan.Zero;
 
-        protected bool? considerInvisibleElements;
+        private bool? considerInvisibleElements;
         private TextPrecision? textPrecision;
         private Match? match;
         private TimeSpan? retryInterval;
         private TimeSpan? timeout;
         private TimeSpan? waitBeforeClick;
 
-
         public override bool Equals(object obj)
         {
             if (obj is null) return false;
-            return ReferenceEquals(this, obj) || Equals((Options) obj);
+            return ReferenceEquals(this, obj) || Equals((Options)obj);
             //if (obj.GetType() != this.GetType()) return false;
         }
 
@@ -50,13 +49,12 @@ namespace Coypu
         /// <summary>
         /// Just picks the first element that matches
         /// </summary>
-        public static Options First => new Options {Match = Match.First};
+        public static Options First => new Options { Match = Match.First };
 
         /// <summary>
         /// Raises an error if more than one element match
         /// </summary>
         public static Options Single => new Options { Match = Match.Single };
-
 
         /// <summary>
         /// Match by exact visible text
@@ -171,7 +169,6 @@ Coypu does this by default from v2.0. Your options:
 
  * Look for something more specific";
 
-
             if (TextPrecision != TextPrecision.Exact)
                 message += Environment.NewLine + " * Set the Options.TextPrecision option to Exact to exclude substring text matches";
 
@@ -203,8 +200,6 @@ Coypu does this by default from v2.0. Your options:
                 };
         }
 
-     
-
         protected static T? Default<T>(T? value, T? defaultValue) where T : struct
         {
             return value ?? defaultValue;
@@ -212,7 +207,7 @@ Coypu does this by default from v2.0. Your options:
 
         public override string ToString()
         {
-			return string.Join(Environment.NewLine, GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public).Select(p => p.Name + ": " + p.GetValue(this, null)).ToArray());
+            return string.Join(Environment.NewLine, GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public).Select(p => p.Name + ": " + p.GetValue(this, null)).ToArray());
         }
 
         protected bool Equals(Options other)

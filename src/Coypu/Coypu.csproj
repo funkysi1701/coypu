@@ -14,7 +14,7 @@ This package includes the Coypu 3 framework assembly, which should be referenced
 Supported platforms:
 - .NET Core 6.0+</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/featurist/coypu/</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/funkysi1701/coypu/</PackageProjectUrl>
     <Copyright>Copyright © 2018 Adrian Longley and Contributors</Copyright>
     <PackageTags>browser, automation, selenium, testing, framework</PackageTags>
     <LangVersion>7.3</LangVersion>
