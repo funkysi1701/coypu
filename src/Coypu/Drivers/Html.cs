@@ -10,19 +10,25 @@ namespace Coypu.Drivers
     /// </summary>
     public class Html : XPath
     {
-        private static readonly string[] InputButtonTypes = {"button", "submit", "image", "reset"};
-        private static readonly string[] FieldTagNames = {"input", "select", "textarea"};
+        private static readonly string[] InputButtonTypes = { "button", "submit", "image", "reset" };
+        private static readonly string[] FieldTagNames = { "input", "select", "textarea" };
+
         private static readonly string[] FieldInputTypes =
             {"text", "password", "radio", "checkbox", "file", "email", "tel", "url", "number", "datetime", "datetime-local", "date", "month", "week", "time", "color", "search"};
-        private static readonly string[] FieldInputTypeWithHidden = FieldInputTypes.Union(new[] {"hidden"})
-                                                                                   .ToArray();
-        private static readonly string[] FindByNameTypes = FieldInputTypes.Except(new[] {"radio"})
-                                                                          .ToArray();
-        private static readonly string[] FindByValueTypes = {"checkbox", "radio"};
-        private readonly string[] _headerTags = {"h1", "h2", "h3", "h4", "h5", "h6"};
-        private readonly string[] _sectionTags = {"section", "div", "li"};
 
-        public Html(bool uppercaseTagNames = false) : base(uppercaseTagNames) { }
+        private static readonly string[] FieldInputTypeWithHidden = FieldInputTypes.Union(new[] { "hidden" })
+                                                                                   .ToArray();
+
+        private static readonly string[] FindByNameTypes = FieldInputTypes.Except(new[] { "radio" })
+                                                                          .ToArray();
+
+        private static readonly string[] FindByValueTypes = { "checkbox", "radio" };
+        private readonly string[] _headerTags = { "h1", "h2", "h3", "h4", "h5", "h6" };
+        private readonly string[] _sectionTags = { "section", "div", "li" };
+
+        public Html(bool uppercaseTagNames = false) : base(uppercaseTagNames)
+        {
+        }
 
         public string Id(string locator,
                          Options options)
@@ -99,7 +105,7 @@ namespace Coypu.Drivers
                               Options options)
         {
             return Descendent() + Where(TagNamedOneOf(_sectionTags) + And(Child() +
-                                                                          Where(TagNamedOneOf(_headerTags) + and + IsText(locator, options)) + Or + HasId(locator)));
+                                                                          Where(TagNamedOneOf(_headerTags) + andString + IsText(locator, options)) + Or + HasId(locator)));
         }
 
         public string Option(string locator,
@@ -110,12 +116,12 @@ namespace Coypu.Drivers
 
         private string HasValue(string locator)
         {
-            return Group(AttributeIsOneOf("type", FindByValueTypes) + and + Attr("value", locator, Options.Exact));
+            return Group(AttributeIsOneOf("type", FindByValueTypes) + andString + Attr("value", locator, Options.Exact));
         }
 
         private string HasName(string locator)
         {
-            return Group(AttributeIsOneOfOrMissing("type", FindByNameTypes) + and + Attr("name", locator, Options.Exact));
+            return Group(AttributeIsOneOfOrMissing("type", FindByNameTypes) + andString + Attr("name", locator, Options.Exact));
         }
 
         private string FrameAttributesMatch(string locator)
@@ -125,7 +131,7 @@ namespace Coypu.Drivers
 
         private string IsInputButton()
         {
-            return Group(TagNamedOneOf("input") + and + AttributeIsOneOf("type", InputButtonTypes));
+            return Group(TagNamedOneOf("input") + andString + AttributeIsOneOf("type", InputButtonTypes));
         }
 
         private string IsAFieldInputType(Options options)

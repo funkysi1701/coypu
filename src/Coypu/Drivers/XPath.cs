@@ -10,7 +10,7 @@ namespace Coypu.Drivers
     public class XPath
     {
         public const string andString = " and ";
-        public const string orString = " or ";
+        public const string Or = " or ";
         private readonly bool _uppercaseTagNames;
 
         public XPath(bool uppercaseTagNames = false)
@@ -105,7 +105,7 @@ namespace Coypu.Drivers
         public string AttributeIsOneOfOrMissing(string attributeName,
                                                 string[] values)
         {
-            return Group($"{AttributeIsOneOf(attributeName, values)}{orString}not(@{attributeName})");
+            return Group($"{AttributeIsOneOf(attributeName, values)}{Or}not(@{attributeName})");
         }
 
         public string AttributeIsOneOf(string attributeName,
