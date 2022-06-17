@@ -16,9 +16,11 @@ namespace Coypu.AcceptanceTests.Examples
     {
         public class CustomFirefoxOptionsSeleniumWebDriver : SeleniumWebDriver
         {
-            public CustomFirefoxOptionsSeleniumWebDriver(Browser browser) : base(CustomOptions(), browser) { }
+            public CustomFirefoxOptionsSeleniumWebDriver(Browser browser) : base(CustomOptions(), browser)
+            {
+            }
 
-            private static RemoteWebDriver CustomOptions()
+            private static IWebDriver CustomOptions()
             {
                 return new FirefoxDriver(new FirefoxOptions());
             }
@@ -53,7 +55,7 @@ namespace Coypu.AcceptanceTests.Examples
         [Test]
         public void ConsideringInvisibleElements()
         {
-            Browser.FindButton("firstInvisibleInputId", new Options {ConsiderInvisibleElements = true})
+            Browser.FindButton("firstInvisibleInputId", new Options { ConsiderInvisibleElements = true })
                    .Now();
         }
 
@@ -67,7 +69,7 @@ namespace Coypu.AcceptanceTests.Examples
         [Test]
         public void CustomOptions()
         {
-            var configuration = new SessionConfiguration {Driver = typeof(CustomFirefoxOptionsSeleniumWebDriver)};
+            var configuration = new SessionConfiguration { Driver = typeof(CustomFirefoxOptionsSeleniumWebDriver) };
             using (var custom = new BrowserSession(configuration))
             {
                 custom.Visit("https://www.relishapp.com/");
@@ -131,7 +133,7 @@ namespace Coypu.AcceptanceTests.Examples
         [Test]
         public void Native_example()
         {
-            var button = (IWebElement) Browser.FindButton("clickMeTest")
+            var button = (IWebElement)Browser.FindButton("clickMeTest")
                                               .Native;
             button.Click();
             Assert.That(Browser.FindButton("clickMeTest")
@@ -153,7 +155,7 @@ namespace Coypu.AcceptanceTests.Examples
             Browser.TryUntil(() => tryThisButton.Click(),
                              () => Browser.HasContent("try until 5"),
                              TimeSpan.FromMilliseconds(50),
-                             new Options {Timeout = TimeSpan.FromMilliseconds(10000)});
+                             new Options { Timeout = TimeSpan.FromMilliseconds(10000) });
         }
     }
 }
