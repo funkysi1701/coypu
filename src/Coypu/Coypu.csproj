@@ -19,7 +19,7 @@ Supported platforms:
     <PackageTags>browser, automation, selenium, testing, framework</PackageTags>
     <LangVersion>7.3</LangVersion>
     <Authors>Adrian Longley, Jakub Obstarczyk</Authors>
-    <RepositoryUrl>https://github.com/featurist/coypu</RepositoryUrl>
+    <RepositoryUrl>https://github.com/funkysi1701/coypu</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Company>Coypu</Company>
     <NeutralLanguage>en</NeutralLanguage>

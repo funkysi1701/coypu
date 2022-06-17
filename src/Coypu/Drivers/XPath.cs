@@ -9,8 +9,8 @@ namespace Coypu.Drivers
     /// </summary>
     public class XPath
     {
-        public const string and = " and ";
-        public const string Or = " or ";
+        public const string andString = " and ";
+        public const string orString = " or ";
         private readonly bool _uppercaseTagNames;
 
         public XPath(bool uppercaseTagNames = false)
@@ -41,7 +41,7 @@ namespace Coypu.Drivers
 
         public string And(string expression)
         {
-            return and + Group(expression);
+            return andString + Group(expression);
         }
 
         internal string Literal(string value)
@@ -102,11 +102,10 @@ namespace Coypu.Drivers
             return $"contains(@class,' {className}') " + $"or contains(@class,'{className} ') " + $"or contains(@class,' {className} ')";
         }
 
-
         public string AttributeIsOneOfOrMissing(string attributeName,
                                                 string[] values)
         {
-            return Group($"{AttributeIsOneOf(attributeName, values)}{Or}not(@{attributeName})");
+            return Group($"{AttributeIsOneOf(attributeName, values)}{orString}not(@{attributeName})");
         }
 
         public string AttributeIsOneOf(string attributeName,
