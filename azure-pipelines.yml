@@ -10,8 +10,7 @@ trigger:
 - feature/*
 - develop
 
-pool:
-  vmImage: 'windows-latest'
+pool: windows
 
 steps:
 - task: NuGetToolInstaller@1
