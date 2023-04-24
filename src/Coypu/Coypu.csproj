@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <ProjectGuid>{0495F7A7-A1A9-422C-BE9D-6D9F9BD4E97C}</ProjectGuid>
     <TargetFrameworks>net6</TargetFrameworks>
@@ -38,6 +38,6 @@ Supported platforms:
     <DocumentationFile>bin\Debug\Coypu.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Selenium.WebDriver" Version="4.8.2" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.9.0" />
   </ItemGroup>
 </Project>
